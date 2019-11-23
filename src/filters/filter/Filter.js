@@ -11,13 +11,10 @@ export const Filter = ({ category, dataSet, activeFilters, handleFilterUpdate })
         setFocused(true)
         handleFilterUpdate(category, event.target.innerHTML)
     }
-
+    const onButtonClick = (event) => handleFilterUpdate(category, event.target.innerHTML)
     const showOptions = () => setFocused(true)
     const hideOptions = () => setFocused(false)
-
-    const onInputChange = (event) => {
-        setFilterText(event.target.value)
-    }
+    const onInputChange = (event) => setFilterText(event.target.value)
 
     useEffect(() => {
         if (focused) {
@@ -30,7 +27,7 @@ export const Filter = ({ category, dataSet, activeFilters, handleFilterUpdate })
             <p>Filter by {category}:</p>
             <div className="active-filters-wrapper">
                 {activeFilters.map(activeFilter =>
-                    <button key={`key-${activeFilter}`} onClick={onOptionClicked}>{activeFilter}</button>)}
+                    <button key={`key-${activeFilter}`} onClick={onButtonClick}>{activeFilter}</button>)}
             </div>
             <div className='multi-select'>
                 <input type='text' value={filterText} onFocus={showOptions} ref={inputRef} onBlur={hideOptions} onChange={onInputChange} />

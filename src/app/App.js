@@ -3,9 +3,9 @@ import _ from "lodash"
 
 import './style.css'
 import { convertToArray, updateFilters } from './operations'
-import { Chart } from '../chart/Chart'
-import { Error } from "../error/Error"
-import { Filters } from '../filters/Filters'
+import { Chart } from '../chart'
+import { Error } from "../error"
+import { Filters } from '../filters'
 
 export const App = () => {
     const [hasError, setErrors] = useState(false)
